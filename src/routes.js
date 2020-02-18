@@ -16,7 +16,7 @@ routes.get('/sms', (req, res) =>{
 });
 routes.post('/sms', (req, res) =>{
     var pessoa = req.body;
-    const client = new totalvoice("YourApi");
+    const client = new totalvoice("process.env.TTV_TOKEN");
 
     client.sms.enviar(pessoa.numero, "Olá passageiro, recebemos o seu número, assim que soubermos de alguma mudança iremos te informar")
     .then(function(data) {
