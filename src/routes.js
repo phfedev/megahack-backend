@@ -28,4 +28,26 @@ routes.post('/sms', (req, res) =>{
     //return res.send(data);
     //return res.json(req.body)
 });
+// routes.post('/validanumero', (req, res) => {
+//     var pessoa = req.body
+//     const client = new totalvoice("f1e7d9db50fa289d2080518116eaad6a");
+//     client.validanumero.criar(pessoa.numero).then(function(data) {  
+//         return res.send(data);
+//     }).catch(function(error) {
+//         return res.send(error);
+//     });
+// });
+
+routes.post('/vooatrasado', (req, res) => {
+    var pessoa = req.body
+    const client = new totalvoice("f1e7d9db50fa289d2080518116eaad6a");
+    client.tts.enviar(pessoa.numero, "Olá, o seu voo vai atrasar uma hora")
+    .then(function(data) {
+        return res.send(data);
+    })
+    .catch(function(error) {
+        return res.send(error);
+    });
+});
+
 module.exports = routes;
