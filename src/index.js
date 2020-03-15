@@ -4,7 +4,7 @@ const totalvoice = require('totalvoice-node');
 const cors = require('cors');
 
 const app = express();
-// const client = new totalvoice("f1e7d9db50fa289d2080518116eaad6a");
+// const client = new totalvoice("your token");
 
 // client.sms.enviar("62981955972", "Ola tudo bem?")
 //     .then(function(data) {
