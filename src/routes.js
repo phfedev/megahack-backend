@@ -16,7 +16,7 @@ routes.get('/sms', (req, res) =>{
 });
 routes.post('/sms', (req, res) =>{
     var pessoa = req.body;
-    const client = new totalvoice("f1e7d9db50fa289d2080518116eaad6a");
+    const client = new totalvoice("You Token");
 
     client.sms.enviar(pessoa.numero, "Olá passageiro, recebemos o seu número, assim que soubermos de alguma mudança iremos te informar")
     .then(function(data) {
@@ -25,23 +25,14 @@ routes.post('/sms', (req, res) =>{
     .catch(function(error) {
         return res.send(error);
     });
-    //return res.send(data);
-    //return res.json(req.body)
+
 });
-// routes.post('/validanumero', (req, res) => {
-//     var pessoa = req.body
-//     const client = new totalvoice("f1e7d9db50fa289d2080518116eaad6a");
-//     client.validanumero.criar(pessoa.numero).then(function(data) {  
-//         return res.send(data);
-//     }).catch(function(error) {
-//         return res.send(error);
-//     });
-// });
+
 
 routes.post('/novoCadastro', (req, res) =>{
     var pessoa = req.body
     console.log(req.body);
-    const client = new totalvoice("f1e7d9db50fa289d2080518116eaad6a");
+    const client = new totalvoice("Your Token");
     client.sms.enviar(pessoa.numero, "Olá passageiro, recebemos o seu número, assim que soubermos de alguma mudança iremos te informar")
     .then(function(data) {
         return res.send(data);
@@ -55,7 +46,7 @@ routes.post('/novoCadastro', (req, res) =>{
 
 routes.post('/vooatrasado', (req, res) => {
     var pessoa = req.body
-    const client = new totalvoice("f1e7d9db50fa289d2080518116eaad6a");
+    const client = new totalvoice("Your Token");
     client.tts.enviar(pessoa.numero, "Olá, o seu voo vai atrasar uma hora")
     .then(function(data) {
         return res.send(data);
